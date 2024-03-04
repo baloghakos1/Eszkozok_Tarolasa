@@ -1,0 +1,12 @@
+Nev;Ar;Mennyiseg;Leiras;Gyorsan avulo
+ASUS VivoBook Laptop;85000;23;ASUS VivoBook E510MA-EJ909WS Laptop (15,6" FHD/Celeron/4GB/128 GB SSD/Win11HS);True
+ASUS TUF Gaming Laptop;340000;58;ASUS TUF Gaming F15 FX506HE-HN151W Gamer laptop (15,6" FHD/Core i5/16GB/512 GB SSD/RTX3050Ti 4GB/Win11H);False
+APPLE MacBook Air;390000;41;APPLE MacBook Air 2020 13" Retina asztroszürke Apple M1 (8C/7C)/8GB/256 GB SSD (mgn63mg/a);False
+APPLE AirTag;12300;183;APPLE AirTag, 1 darabos csomag (mx532zy/a);False
+XIAOMI REDMI PAD SE 11 Tablet;71000;7;XIAOMI REDMI PAD SE 11" 128GB WiFi Szürke Tablet (VHU4448EU);False
+APPLE 20W USB-C hálózati adapter;10000;93;APPLE 20W USB-C hálózati adapter (mhje3zm/a);True
+LENOVO Tab M9 Tablet;49000;19;LENOVO Tab M9 9" 32GB WiFi Szürke Tablet + tok (ZAC30045GR);False
+CANON Pixma Nyomtató;16000;123;CANON Pixma MG3650s multifunkciós színes WiFi tintasugaras nyomtató (0515C109AA);False
+EPSON EcoTank Nyomtató;70000;3;EPSON EcoTank L3266 multifunkciós színes WiFi külső tintatartályos tintasugaras nyomtató (C11CJ66412);False
+HP LaserJet Nyomtató;56700;12;HP LaserJet M140WE HP+, Instant Ink ready multifunkciós MONO WiFi lézernyomtató (7MD72E);True
+Lenovo TV;890000;24;Jó kis TV;False
