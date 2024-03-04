@@ -10,8 +10,8 @@ namespace Projekt_02._23
     class Program
     {
 
-        static string[] feladatok = { "Kilépés", "Adatok megtekintése", "Adatok törlése", "Adatok felvétele", "Adatok módosítása", "Mentés" };
-        static string[] EszkozAdat = { "Mégse", "Név", "Ár", "Mennyiség", "Leírás", "Avuló-e" };
+        static string[] feladatok = {"Adatok megtekintése", "Adatok törlése", "Adatok felvétele", "Adatok módosítása", "Mentés", "Kilépés" };
+        static string[] EszkozAdat = {"Név", "Ár", "Mennyiség", "Leírás", "Avuló-e","Mégse" };
 
         class Eszkoz
         {
@@ -255,12 +255,12 @@ namespace Projekt_02._23
             Console.Clear();
             switch (kivalasztott)
             {
-                case 0: Kilep(); break;
+                case 5: Kilep(); break;
+                case 0: Menu2(Eszkozok, kivalasztott); break;
                 case 1: Menu2(Eszkozok, kivalasztott); break;
-                case 2: Menu2(Eszkozok, kivalasztott); break;
-                case 3: Hozzaad(Eszkozok); break;
-                case 4: Menu2(Eszkozok, kivalasztott); break;
-                case 5: Mentes(Eszkozok); break;
+                case 2: Hozzaad(Eszkozok); break;
+                case 3: Menu2(Eszkozok, kivalasztott); break;
+                case 4: Mentes(Eszkozok); break;
             }
         }
 
@@ -276,9 +276,9 @@ namespace Projekt_02._23
                 Console.ForegroundColor = ConsoleColor.White;
                 switch (s)
                 {
-                    case 1: Console.WriteLine("Tekintse meg az alábbi termékeket:\n"); ; break;
-                    case 2: Console.WriteLine("Töröljön ki az alábbi termékek közül:\n"); break;
-                    case 4: Console.WriteLine("Módosítsa az alábbi termékeket:\n"); break;
+                    case 0: Console.WriteLine("Tekintse meg az alábbi termékeket:\n"); ; break;
+                    case 1: Console.WriteLine("Töröljön ki az alábbi termékek közül:\n"); break;
+                    case 3: Console.WriteLine("Módosítsa az alábbi termékeket:\n"); break;
                 }
                 for (int i = 0; i < Eszkozok.Count+1; i++)
                 {
@@ -290,13 +290,13 @@ namespace Projekt_02._23
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    if (i==0)
+                    if (i != Eszkozok.Count())
+                    {
+                        Console.WriteLine("\t" + (i + 1) + ") " + Eszkozok[i].EszkozNev());
+                    }
+                    else if (i==Eszkozok.Count())
                     {
                         Console.WriteLine("\t" + (i + 1) + ") " + "Vissza");
-                    }
-                    else
-                    {
-                        Console.WriteLine("\t" + (i + 1) + ") " + Eszkozok[i - 1].EszkozNev());
                     }
                 }
 
@@ -310,24 +310,24 @@ namespace Projekt_02._23
 
             } while (lenyomott.Key != ConsoleKey.Enter);
             Console.Clear();
-            if (kivalasztott == 0)
+            if (kivalasztott == Eszkozok.Count())
             {
                 Vissza1(Eszkozok);
             }
-            else if (s == 1)
+            else if (s == 0)
             {
-                Eszkozok[kivalasztott - 1].Megtekintes();
+                Eszkozok[kivalasztott].Megtekintes();
                 Console.ReadLine();
                 Menu2(Eszkozok, s);
             }
-            else if (s == 2)
+            else if (s == 1)
             {
-                Eszkozok[kivalasztott - 1].Torles(Eszkozok, kivalasztott - 1);
+                Eszkozok[kivalasztott].Torles(Eszkozok, kivalasztott);
                 Menu2(Eszkozok, s);
             }
-            else if (s == 4)
+            else if (s == 3)
             {
-                ModositasMenu(Eszkozok, kivalasztott -1);
+                ModositasMenu(Eszkozok, kivalasztott);
             }
         }
 
@@ -370,12 +370,12 @@ namespace Projekt_02._23
             Console.Clear();
             switch (kivalasztott)
             {
-                case 0: Menu2(Eszkozok, 4); break;
-                case 1: Eszkozok[szam].ModNev(Eszkozok, szam); break;
-                case 2: Eszkozok[szam].ModAr(Eszkozok, szam); break;
-                case 3: Eszkozok[szam].ModMennyiseg(Eszkozok, szam); break;
-                case 4: Eszkozok[szam].ModLeiras(Eszkozok, szam); break;
-                case 5: Eszkozok[szam].ModAvulo(Eszkozok, szam); break;
+                case 5: Menu2(Eszkozok, 3); break;
+                case 0: Eszkozok[szam].ModNev(Eszkozok, szam); break;
+                case 1: Eszkozok[szam].ModAr(Eszkozok, szam); break;
+                case 2: Eszkozok[szam].ModMennyiseg(Eszkozok, szam); break;
+                case 3: Eszkozok[szam].ModLeiras(Eszkozok, szam); break;
+                case 4: Eszkozok[szam].ModAvulo(Eszkozok, szam); break;
             }
         }
 
@@ -385,6 +385,7 @@ namespace Projekt_02._23
         }
         static void Kilep()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             System.Environment.Exit(0);
         }
 
@@ -405,8 +406,9 @@ namespace Projekt_02._23
 
         static void Mentes(List<Eszkoz> Eszkozok)
         {
+            Eszkoz temp = new Eszkoz("",0,0,"",true);
             Console.ForegroundColor = ConsoleColor.White;
-            Eszkozok[0].Ment(Eszkozok);
+            temp.Ment(Eszkozok);
             Console.WriteLine("Adatok sikeresen mentve");
             Console.ReadLine();
             Menu(Eszkozok);
